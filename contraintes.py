@@ -41,7 +41,7 @@ class Contraintes:
                 contraintes["egalites"].append({elt:prix})
                 
             elif(elt.lower() in list(produits_beautes["Product"].str.lower())):
-                prix = float(produits_beautes[produits_beautes["Produit"]==elt]["Price"])
+                prix = float(produits_beautes[produits_beautes["Product"]==elt]["Price"])
                 contraintes["egalites"].append({elt:prix})
                 
             else:
