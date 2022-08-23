@@ -23,14 +23,19 @@ class Datasets:
 
         else:
             pass
-        
-        super_marche = pd.read_csv("Data/super_marche.csv")
-        produits_beautes = pd.read_csv("Data/produits beaute.csv", 
-                                       encoding= 'unicode_escape')
+
+        #super_marche = pd.read_csv("Data/super_marche.csv", encoding="ISO-8859-1", sep=";")
+        #produits_beautes = super_marche = pd.read_csv("Data/produits beaute.csv", encoding="ISO-8859-1", sep=";")
+        super_marche = pd.read_csv("Data/super_marche.csv", encoding="ISO-8859-1", sep=";")
+        produits_beautes = pd.read_csv("Data/produits beaute.csv", encoding="ISO-8859-1", sep=";")
         
         
         # Convertir en lower
         data = data.apply(lambda x: x.astype(str).str.lower())
+        super_marche = super_marche.apply(lambda x: x.astype(str).str.lower())
+        produits_beautes = produits_beautes.apply(lambda x: x.astype(str).str.lower())
+
+        #print(f"Nature : {produits_beautes.dtypes}")
 
         return data, super_marche, produits_beautes
     

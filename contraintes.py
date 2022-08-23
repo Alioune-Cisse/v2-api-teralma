@@ -33,15 +33,15 @@ class Contraintes:
         contraintes = {"egalites":[], "inegalites": [] }
         for elt in self.choix:
             if(elt.lower() in list(nature['Sous catégories dépenses'].str.lower())):
-                prix = float(nature[nature['Sous catégories dépenses']==elt][palier])
+                prix = float(nature[nature['Sous catégories dépenses']==elt.lower()][palier])
                 contraintes["inegalites"].append({elt:prix})
                 
             elif(elt.lower() in list(super_marche["Produit"].str.lower())):
-                prix = float(super_marche[super_marche["Produit"]==elt]["Prix"])
+                prix = float(super_marche[super_marche["Produit"]==elt.lower()]["Prix"])
                 contraintes["egalites"].append({elt:prix})
                 
             elif(elt.lower() in list(produits_beautes["Product"].str.lower())):
-                prix = float(produits_beautes[produits_beautes["Product"]==elt]["Price"])
+                prix = float(produits_beautes[produits_beautes["Product"]==elt.lower()]["Price"])
                 contraintes["egalites"].append({elt:prix})
                 
             else:
